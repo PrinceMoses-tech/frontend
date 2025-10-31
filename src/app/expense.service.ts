@@ -7,7 +7,7 @@ import { Expense } from './expense.model';
   providedIn: 'root'
 })
 export class ExpenseService {
-  private apiUrl = 'http://localhost:5000/api/expenses';
+  private apiUrl = 'https://expense-track-server-aagt.onrender.com/api/expenses';
 
   constructor(private http: HttpClient) { }
 
