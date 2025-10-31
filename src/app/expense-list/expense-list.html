@@ -1,0 +1,36 @@
+<div class="expense-list">
+  <h3>Expense List</h3>
+  
+  <div class="total-amount">
+    <h4>Total Spent: ${{totalAmount.toFixed(2)}}</h4>
+  </div>
+
+  <div *ngIf="expenses.length === 0" class="no-expenses">
+    <p>No expenses yet. Add your first expense!</p>
+  </div>
+
+  <table *ngIf="expenses.length > 0" class="table table-striped">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Amount</th>
+        <th>Category</th>
+        <th>Date</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let expense of expenses">
+        <td>{{expense.title}}</td>
+        <td>${{expense.amount.toFixed(2)}}</td>
+        <td>{{expense.category}}</td>
+        <td>{{expense.date | date:'mediumDate'}}</td>
+        <td>
+          <button class="btn btn-danger btn-sm" (click)="deleteExpense(expense._id!)">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

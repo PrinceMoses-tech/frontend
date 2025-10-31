@@ -1,0 +1,23 @@
+<div class="add-expense">
+  <h3>Add New Expense</h3>
+  <form (ngSubmit)="addExpense()">
+    <div class="mb-3">
+      <label class="form-label">Title:</label>
+      <input type="text" class="form-control" [(ngModel)]="newExpense.title" name="title" required>
+    </div>
+    
+    <div class="mb-3">
+      <label class="form-label">Amount:</label>
+      <input type="number" class="form-control" [(ngModel)]="newExpense.amount" name="amount" required>
+    </div>
+    
+    <div class="mb-3">
+      <label class="form-label">Category:</label>
+      <select class="form-control" [(ngModel)]="newExpense.category" name="category">
+        <option *ngFor="let category of categories" [value]="category">{{category}}</option>
+      </select>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Add Expense</button>
+  </form>
+</div>
